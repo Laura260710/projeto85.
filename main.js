@@ -7,17 +7,17 @@ greencar_height = 100;
 backgroundImage = "parkingLot.jpg";
 greencarImage = "car2.png";
 
-greencar_X = 75;
-greencar_Y = 355;
+greencar_X = 20;
+greencar_Y = 250;
 
 function add() {
 	background_imgTag = new Image();
 	background_imgTag.onload = uploadBackground;
-	background_imgTag.src = background_image;
+	background_imgTag.src = backgroundImage;
 
 	greencar_imgTag = new Image();
-	greencar_imgTag.onload = uploadgreencar;
-	greencar_imgTag.src = greencar_image;
+	greencar_imgTag.onload = uploadGreenCar;
+	greencar_imgTag.src = greencarImage;
 }
 
 function uploadBackground() {
@@ -26,81 +26,68 @@ function uploadBackground() {
 }
 
 function uploadGreenCar() {
-	ctx.drawImage(greencar_imgTag, greencar_x,greencar_y, greencar_width, greencar_height);
-	
-	
+	ctx.drawImage(greencar_imgTag, greencar_X, greencar_Y, greencar_width, greencar_height);
+
+
 }
 
 
 window.addEventListener("keydown", myKeyDown);
 
-function myKeyDown(e)
-{
+function myKeyDown(e) {
 	keyPressed = e.keyCode;
 	console.log(keyPressed);
-		if(keyPressed == '38')
-		{
-			up();
-			console.log("up");
-		}
-	
-		if(keyPressed == '40')
-		{
-			down();
-			console.log("down");
-		}
-		
-		if(keyPressed == '37')
-		{
-			left();
-			console.log("left");
-		}
-	
-		if(keyPressed == '39')
-		{
-			right();
-			console.log("right");
-		}
-		
-		
+	if (keyPressed == '38') {
+		up();
+		console.log("up");
+	}
+
+	if (keyPressed == '40') {
+		down();
+		console.log("down");
+	}
+
+	if (keyPressed == '37') {
+		left();
+		console.log("left");
+	}
+
+	if (keyPressed == '39') {
+		right();
+		console.log("right");
+	}
+
+
 }
 
-function up()
-{
-	if(greencar_y >=0)
-	{
-		greencar_y =greencar_y - 10;
+function up() {
+	if (greencar_Y >= 0) {
+		greencar_Y = greencar_Y - 10;
 		uploadBackground();
-		uploadgreencar();
+		uploadGreenCar();
 	}
 }
 
-function down()
-{
-	if(greencar_y <=350)
-	{
-		greencar_y =greencar_y+10;
+function down() {
+	if (greencar_Y <= 350) {
+		greencar_Y = greencar_Y + 10;
 		uploadBackground();
-		uploadgreencar();
+		uploadGreenCar();
 	}
 }
 
-function left()
-{
-	if(greencar_x >=0)
-	{
-		greencar_x =greencar_x - 10;
+function left() {
+	if (greencar_X >= 0) {
+		greencar_X = greencar_X - 10;
 		uploadBackground();
-		uploadgreencar();
+		uploadGreenCar();
 	}
 }
 
-function right()
-{
-	if(greencar_x <=750)
-	{
-		greencar_x =greencar_x + 10;
+function right() {
+	if (greencar_X <= 750) {
+		greencar_X = greencar_X + 10;
 		uploadBackground();
-		uploadgreencar();
+		uploadGreenCar();
 	}
 }
